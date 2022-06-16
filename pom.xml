@@ -16,6 +16,8 @@
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     <calculator.path>${project.basedir}/src/main/resources/libs/calculator-1.0.jar</calculator.path>
+    <selenium-java.version>4.2.1</selenium-java.version>
+    <webdrivermanager.version>5.2.0</webdrivermanager.version>
   </properties>
   <profiles>
     <profile>
@@ -53,6 +55,16 @@
     </profile>
   </profiles>
   <dependencies>
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium-java.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-suite</artifactId>

@@ -1,7 +1,7 @@
-package homework.suits;
+package calculator.suits;
 
-import homework.CalculatorMultiTests;
-import homework.CalculatorSumTests;
+import calculator.CalculatorMultiTests;
+import calculator.CalculatorSumTests;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;

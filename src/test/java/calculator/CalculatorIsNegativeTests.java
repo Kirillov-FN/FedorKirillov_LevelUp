@@ -1,6 +1,6 @@
-package homework;
+package calculator;
 
-import homework.baseclasses.AbstractCalculatorTestBaseClass;
+import calculator.baseclasses.AbstractCalculatorTestBaseClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
