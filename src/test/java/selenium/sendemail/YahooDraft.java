@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import selenium.resources.SeleniumTestsResources;
 
 @TestMethodOrder(OrderAnnotation.class)
-public class YahooLogin extends SeleniumTestsResources {
+public class YahooDraft extends SeleniumTestsResources {
 
     @Test
     @Order(1)
