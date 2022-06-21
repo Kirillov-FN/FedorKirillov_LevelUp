@@ -23,7 +23,7 @@ public abstract class SeleniumTestsResources {
     protected final String ramblerPassword = "LevelUp_homework3";
     protected final String yahooPassword = "LevelUp_homework3";
     protected final String sendToAddress = "Kirillov-f@yandex.ru";
-    protected final String subject = "Тема письма";
+    protected String subject = "Тема письма";
     protected final String text = "Текст Письма";
     public WebDriverWait wait;
 
@@ -39,6 +39,7 @@ public abstract class SeleniumTestsResources {
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        subject += " " + System.currentTimeMillis();
     }
 
     //@AfterEach
