@@ -26,31 +26,55 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <include.class.name>**/suits/AllTestCases.java</include.class.name>
+        <include.class.name>**/calculator/suits/AllTestCases.java</include.class.name>
       </properties>
     </profile>
     <profile>
       <id>SubAndDiv</id>
       <properties>
-        <include.class.name>**/suits/SubAndDivCases.java</include.class.name>
+        <include.class.name>**/calculator/suits/SubAndDivCases.java</include.class.name>
       </properties>
     </profile>
     <profile>
       <id>SumAndMulti</id>
       <properties>
-        <include.class.name>**/suits/SumAndMultiCases.java</include.class.name>
+        <include.class.name>**/calculator/suits/SumAndMultiCases.java</include.class.name>
       </properties>
     </profile>
     <profile>
       <id>TgCtgCosSin</id>
       <properties>
-        <include.class.name>**/suits/TgCtgCosSinCases.java</include.class.name>
+        <include.class.name>**/calculator/suits/TgCtgCosSinCases.java</include.class.name>
       </properties>
     </profile>
     <profile>
       <id>Other</id>
       <properties>
-        <include.class.name>**/suits/AllOtherCases.java</include.class.name>
+        <include.class.name>**/calculator/suits/AllOtherCases.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
+      <id>Selenium</id>
+      <properties>
+        <include.class.name>**/selenium/suits/AllSeleniumTests.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
+      <id>SeleniumDelete</id>
+      <properties>
+        <include.class.name>**/selenium/suits/YahooDeleteSuit.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
+      <id>SeleniumDraft</id>
+      <properties>
+        <include.class.name>**/selenium/suits/YahooDraftSuit.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
+      <id>SeleniumRule</id>
+      <properties>
+        <include.class.name>**/selenium/suits/YahooRuleSuit.java</include.class.name>
       </properties>
     </profile>
   </profiles>

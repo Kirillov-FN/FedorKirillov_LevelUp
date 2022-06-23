@@ -16,7 +16,7 @@ public class CalculatorSubTests extends AbstractCalculatorTestBaseClass {
     }
 
     @ParameterizedTest
-    @MethodSource("homework.testdata.CalculatorTestsData#calculatorSubTestsData")
+    @MethodSource("calculator.testdata.CalculatorTestsData#calculatorSubTestsData")
     public void doubleSubTest(double a, double b, double exceptedRes) {
         var res = calculator.sub(a, b);
         assertEquals(exceptedRes, res);

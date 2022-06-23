@@ -17,7 +17,7 @@ public class CalculatorDivTests extends AbstractCalculatorTestBaseClass {
     }
 
     @ParameterizedTest
-    @MethodSource("homework.testdata.CalculatorTestsData#calculatorDivTestsData")
+    @MethodSource("calculator.testdata.CalculatorTestsData#calculatorDivTestsData")
     public void longDivTest(long a, long b, double expected) {
         var res = calculator.div(a, b);
         assertEquals(expected, res);
