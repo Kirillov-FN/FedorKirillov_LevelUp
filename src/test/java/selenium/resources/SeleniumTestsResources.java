@@ -3,8 +3,8 @@ package selenium.resources;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.time.Duration;
 import java.util.List;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.openqa.selenium.By;
@@ -23,21 +23,15 @@ public abstract class SeleniumTestsResources {
 
     public WebDriverWait wait;
 
-
-    @BeforeAll
-    public void beforeSuite() {
-        WebDriverManager.chromedriver().setup();
-        setUp();
-    }
-
-    //@BeforeEach
+    @BeforeEach
     public void setUp() {
+        WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
     }
 
-    //@AfterEach
+    @AfterEach
     public void tearDown() {
         webDriver.quit();
     }
@@ -62,11 +56,5 @@ public abstract class SeleniumTestsResources {
     public boolean isElementInList(String locator, String text) {
         return getElementInListBySubject(locator, text) != null;
     }
-
-    @AfterAll
-    public void down() {
-        tearDown();
-    }
-
 
 }

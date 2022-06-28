@@ -56,9 +56,9 @@ public class YahooRuleTest extends SeleniumTestsResources {
         webDriver.findElement(By.cssSelector("button[data-test-id=\"compose-send-button\"]")).click();
         wait.until(ExpectedConditions
             .visibilityOfElementLocated(By
-                .cssSelector("div[data-test-id=\"notifications\"]>div>div>div>span>a")));
+                .cssSelector("div[data-test-id=\"notifications\"] a")));
         String alert = webDriver.findElement(By
-            .cssSelector("div[data-test-id=\"notifications\"]>div>div>div>span")).getText();
+            .cssSelector("div[data-test-id=\"notifications\"] span")).getText();
         assertEquals("Ваше сообщение отправлено.", alert);
         // Verify, что письмо появилось в папке отправленные
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[data-test-folder-name=\"Sent\"]")))

@@ -42,7 +42,7 @@ public class YahooDraftTest extends SeleniumTestsResources {
             WebElement count = webDriver
                 .findElement(By
                     .cssSelector(
-                        "div[data-test-folder-container=\"Draft\"]>a>span>span[data-test-id=\"displayed-count\"]"));
+                        "div[data-test-folder-container=\"Draft\"] span[data-test-id=\"displayed-count\"]"));
             if (count != null) {
                 templatesBeforeTest = Integer.parseInt(count.getText());
             }
@@ -88,9 +88,9 @@ public class YahooDraftTest extends SeleniumTestsResources {
         // Verify, что письмо исчезло из черновиков
         wait.until(ExpectedConditions
             .visibilityOfElementLocated(By
-                .cssSelector("div[data-test-id=\"notifications\"]>div>div>div>span>a")));
+                .cssSelector("div[data-test-id=\"notifications\"] a")));
         String alert = webDriver.findElement(By
-            .cssSelector("div[data-test-id=\"notifications\"]>div>div>div>span")).getText();
+            .cssSelector("div[data-test-id=\"notifications\"] span")).getText();
         assertEquals("Ваше сообщение отправлено.", alert);
         // Verify, что письмо появилось в папке отправленные
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[data-test-folder-name=\"Sent\"]")))
