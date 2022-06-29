@@ -1,4 +1,4 @@
-package homework.baseclasses;
+package calculator.baseclasses;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;

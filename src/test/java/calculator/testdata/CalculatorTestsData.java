@@ -1,4 +1,4 @@
-package homework.testdata;
+package calculator.testdata;
 
 import java.util.stream.Stream;
 import org.junit.jupiter.params.provider.Arguments;

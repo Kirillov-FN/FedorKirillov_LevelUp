@@ -16,6 +16,8 @@
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     <calculator.path>${project.basedir}/src/main/resources/libs/calculator-1.0.jar</calculator.path>
+    <selenium-java.version>4.2.1</selenium-java.version>
+    <webdrivermanager.version>5.2.0</webdrivermanager.version>
   </properties>
   <profiles>
     <profile>
@@ -24,35 +26,69 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <include.class.name>**/suits/AllTestCases.java</include.class.name>
+        <include.class.name>**/calculator/suits/AllTestCases.java</include.class.name>
       </properties>
     </profile>
     <profile>
       <id>SubAndDiv</id>
       <properties>
-        <include.class.name>**/suits/SubAndDivCases.java</include.class.name>
+        <include.class.name>**/calculator/suits/SubAndDivCases.java</include.class.name>
       </properties>
     </profile>
     <profile>
       <id>SumAndMulti</id>
       <properties>
-        <include.class.name>**/suits/SumAndMultiCases.java</include.class.name>
+        <include.class.name>**/calculator/suits/SumAndMultiCases.java</include.class.name>
       </properties>
     </profile>
     <profile>
       <id>TgCtgCosSin</id>
       <properties>
-        <include.class.name>**/suits/TgCtgCosSinCases.java</include.class.name>
+        <include.class.name>**/calculator/suits/TgCtgCosSinCases.java</include.class.name>
       </properties>
     </profile>
     <profile>
       <id>Other</id>
       <properties>
-        <include.class.name>**/suits/AllOtherCases.java</include.class.name>
+        <include.class.name>**/calculator/suits/AllOtherCases.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
+      <id>Selenium</id>
+      <properties>
+        <include.class.name>**/selenium/suits/AllSeleniumTests.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
+      <id>SeleniumDelete</id>
+      <properties>
+        <include.class.name>**/selenium/suits/YahooDeleteSuit.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
+      <id>SeleniumDraft</id>
+      <properties>
+        <include.class.name>**/selenium/suits/YahooDraftSuit.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
+      <id>SeleniumRule</id>
+      <properties>
+        <include.class.name>**/selenium/suits/YahooRuleSuit.java</include.class.name>
       </properties>
     </profile>
   </profiles>
   <dependencies>
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>${selenium-java.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-suite</artifactId>

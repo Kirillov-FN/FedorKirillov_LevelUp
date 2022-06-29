@@ -1,11 +1,9 @@
-package homework.suits;
+package calculator.suits;
 
-import homework.CalculatorCosTests;
-import homework.CalculatorCtgTests;
-import homework.CalculatorDivTests;
-import homework.CalculatorSinTests;
-import homework.CalculatorSubTests;
-import homework.CalculatorTgTests;
+import calculator.CalculatorCosTests;
+import calculator.CalculatorCtgTests;
+import calculator.CalculatorSinTests;
+import calculator.CalculatorTgTests;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;
