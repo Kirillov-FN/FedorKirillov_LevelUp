@@ -10,17 +10,14 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import properties.TestProperties;
 import selenium.resources.SeleniumTestsResources;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class YahooRuleTest extends SeleniumTestsResources {
 
 
-    private final String mailTo = TestProperties.getProperty("yahoo.ruleTest.mailTo");
-    private final String mailSubject = TestProperties.getProperty("yahoo.ruleTest.mailSubject")
-        + System.currentTimeMillis();
-    private final String mailText = TestProperties.getProperty("yahoo.ruleTest.text") + System.currentTimeMillis();
+    private final String mailTo = yahooLogin;
+    private final String mailSubject = "Тема письма" + System.currentTimeMillis() + " Тест";
 
     @Test
     public void  loginSendLogoff() {
