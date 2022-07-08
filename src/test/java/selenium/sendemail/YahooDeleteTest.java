@@ -10,14 +10,16 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import properties.TestProperties;
 import selenium.resources.SeleniumTestsResources;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class YahooDeleteTest extends SeleniumTestsResources {
 
-    private final String mailTo = yahooLogin;
-    private final String mailSubject = "Тема письма" + System.currentTimeMillis();
-    private final String text = "Mail Text";
+    private final String mailTo = TestProperties.getProperty("yahoo.deleteTest.mailTo");
+    private final String mailSubject = TestProperties.getProperty("yahoo.deleteTest.mailSubject")
+        + System.currentTimeMillis();
+    private final String text = TestProperties.getProperty("yahoo.deleteTest.text");
 
     @Test
     public void  loginDeleteLogoff() {

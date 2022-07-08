@@ -9,14 +9,16 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import properties.TestProperties;
 import selenium.resources.SeleniumTestsResources;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class YahooDraftTest extends SeleniumTestsResources {
 
-    protected final String sendToAddress = "Kirillov-f@yandex.ru";
-    protected String subject = "Тема письма" + System.currentTimeMillis();
-    protected final String text = "Текст Письма";
+    protected final String sendToAddress = TestProperties.getProperty("yahoo.draftTest.mailTo");
+    protected final String subject = TestProperties.getProperty("yahoo.draftTest.mailSubject")
+        + System.currentTimeMillis();
+    protected final String text = TestProperties.getProperty("yahoo.draftTest.text");
 
     @Test
     public void  loginDraftLogoff() {
