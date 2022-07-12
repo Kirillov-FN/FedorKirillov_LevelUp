@@ -51,4 +51,8 @@ public class YahooLoginPage {
         inputPassword(password);
         return toMailPage();
     }
+
+    public String getUserFromTitle() {
+        return driver.getTitle().replace(" — Yahoo Почта", "");
+    }
 }
