@@ -14,6 +14,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import properties.TestProperties;
+import selenium.sendemail.steps.patern.steps.YahooSteps;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public abstract class SeleniumTestsResources {
@@ -22,6 +23,7 @@ public abstract class SeleniumTestsResources {
     public final String yahooMainPage = TestProperties.getProperty("yahoo.MainPage");
     public final String yahooLogin = TestProperties.getProperty("yahoo.Login");
     public final String yahooPassword = TestProperties.getProperty("yahoo.Password");
+    protected YahooSteps step;
 
     @BeforeEach
     public void setUp() {
@@ -29,7 +31,8 @@ public abstract class SeleniumTestsResources {
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(
-            Integer.parseInt(TestProperties.getProperty("webdriver.wait"))));;
+            Integer.parseInt(TestProperties.getProperty("webdriver.wait"))));
+        step = new YahooSteps(webDriver, wait);
     }
 
     @AfterEach
