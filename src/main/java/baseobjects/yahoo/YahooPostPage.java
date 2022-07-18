@@ -9,13 +9,11 @@ import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class YahooPostPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class YahooPostPage extends YahooBase {
+
     private final By.ByXPath path = new ByXPath("//span[contains(@data-test-id,\"message-subject\")]");
     private final By.ByXPath checkBoxPath = new ByXPath("//button[contains(@data-test-id,\"icon-btn-checkbox\")]");
     private WebElement currentElement = null;
@@ -52,9 +50,7 @@ public class YahooPostPage {
     private List<WebElement> buttonList;
 
     public YahooPostPage(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
-        PageFactory.initElements(driver, this);
+        super(driver, wait);
     }
 
     public void createNewMessage(String email, String subject, String text) {

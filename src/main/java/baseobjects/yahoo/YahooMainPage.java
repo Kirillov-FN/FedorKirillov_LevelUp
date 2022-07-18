@@ -3,21 +3,17 @@ package baseobjects.yahoo;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import properties.TestProperties;
 
-public class YahooMainPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class YahooMainPage extends YahooBase {
+
     @FindBy(linkText = "Sign in")
     private WebElement emailButton;
 
     public YahooMainPage(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
-        PageFactory.initElements(driver, this);
+        super(driver, wait);
     }
 
     public void open() {
