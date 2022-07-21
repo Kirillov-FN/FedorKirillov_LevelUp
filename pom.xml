@@ -18,6 +18,8 @@
     <calculator.path>${project.basedir}/src/main/resources/libs/calculator-1.0.jar</calculator.path>
     <selenium-java.version>4.2.1</selenium-java.version>
     <webdrivermanager.version>5.2.0</webdrivermanager.version>
+    <restassured.version>5.1.1</restassured.version>
+    <javafaker.version>1.0.2</javafaker.version>
   </properties>
   <profiles>
     <profile>
@@ -27,6 +29,12 @@
       </activation>
       <properties>
         <include.class.name>**/calculator/suits/AllTestCases.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
+      <id>ApiTests</id>
+      <properties>
+        <include.class.name>**/api/suits/AllApiCases.java</include.class.name>
       </properties>
     </profile>
     <profile>
@@ -125,6 +133,16 @@
       <artifactId>lombok</artifactId>
       <version>1.18.24</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>${restassured.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
+      <version>${javafaker.version}</version>
     </dependency>
   </dependencies>
   <build>
