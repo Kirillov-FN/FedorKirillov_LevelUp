@@ -32,6 +32,12 @@
       </properties>
     </profile>
     <profile>
+      <id>ApiTests</id>
+      <properties>
+        <include.class.name>**/api/suits/AllApiCases.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
       <id>SubAndDiv</id>
       <properties>
         <include.class.name>**/calculator/suits/SubAndDivCases.java</include.class.name>

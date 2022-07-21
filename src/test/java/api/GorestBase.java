@@ -6,12 +6,13 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.http.Header;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import properties.ApiProperties;
 
-@TestInstance(Lifecycle.PER_METHOD)
+@TestInstance(Lifecycle.PER_CLASS)
 public abstract class GorestBase {
     protected static final String BASE_URL = ApiProperties.getProperty("gorest.baseUrl");
     protected static final String USERS = BASE_URL + "/users";
@@ -33,6 +34,10 @@ public abstract class GorestBase {
             .expectContentType(ContentType.JSON)
             .expectStatusCode(200)
             .build();
-        System.out.printf("EndBeforeAll");
+    }
+
+    @AfterAll
+    public static void close() {
+        RestAssured.reset();
     }
 }

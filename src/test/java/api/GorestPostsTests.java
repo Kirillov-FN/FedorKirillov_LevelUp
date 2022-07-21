@@ -8,10 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import api.response.PostResponse;
 import api.response.PostsResponse;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestInstance.Lifecycle;
 
-public class GorestPostsTest extends GorestBase {
+public class GorestPostsTests extends GorestBase {
 
     @Test
     public void getListAllPostsTest() {
@@ -29,7 +27,7 @@ public class GorestPostsTest extends GorestBase {
             () -> assertTrue(response.getMeta().getPagination().getPage() == 1),
             () -> assertTrue(response.getMeta().getPagination().getTotal() > 0),
             () -> assertTrue(response.getMeta().getPagination().getPages() > 0),
-            () -> assertTrue(response.getData().isEmpty() == false));
+            () -> assertTrue(!response.getData().isEmpty()));
     }
 
     @Test

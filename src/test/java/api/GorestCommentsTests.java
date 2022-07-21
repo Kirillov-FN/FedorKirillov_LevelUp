@@ -8,10 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import api.response.CommentResponse;
 import api.response.CommentsResponse;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestInstance.Lifecycle;
 
-public class GorestCommentsTest extends GorestBase {
+public class GorestCommentsTests extends GorestBase {
 
     @Test
     public void getCommentsTest() {

@@ -10,10 +10,8 @@ import api.response.UserResponse;
 import api.response.UsersResponse;
 import java.util.Random;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestInstance.Lifecycle;
 
-public class GorestUsersTest extends GorestBase {
+public class GorestUsersTests extends GorestBase {
 
     @Test
     public void getUsersTest() {
