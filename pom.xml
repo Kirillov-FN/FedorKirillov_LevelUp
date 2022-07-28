@@ -60,6 +60,12 @@
       </properties>
     </profile>
     <profile>
+      <id>StepSelenium</id>
+      <properties>
+        <include.class.name>**/selenium/suits/StepRefactoredSeleniumTests.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
       <id>Selenium</id>
       <properties>
         <include.class.name>**/selenium/suits/AllSeleniumTests.java</include.class.name>
