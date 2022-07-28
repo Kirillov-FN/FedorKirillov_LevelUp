@@ -1,14 +1,26 @@
 package selenium.resources;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.lang.reflect.Field;
 import java.time.Duration;
 import java.util.List;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.RegisterExtension;
+import org.junit.jupiter.api.extension.TestWatcher;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,8 +36,18 @@ public abstract class SeleniumTestsResources {
     public final String yahooLogin = TestProperties.getProperty("yahoo.Login");
     public final String yahooPassword = TestProperties.getProperty("yahoo.Password");
     protected YahooSteps step;
+    @RegisterExtension
+    ScreenshotWatcher screenshotWatcher = new ScreenshotWatcher(webDriver, "target/surefire-reports");
 
-    @BeforeEach
+    private void setWebDriver() {
+        try {
+            screenshotWatcher.driver = this.webDriver;
+        } catch (Exception e) {
+            System.out.printf(e.getMessage());
+        }
+    }
+
+    @BeforeAll
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
@@ -33,10 +55,12 @@ public abstract class SeleniumTestsResources {
         wait = new WebDriverWait(webDriver, Duration.ofSeconds(
             Integer.parseInt(TestProperties.getProperty("webdriver.wait"))));
         step = new YahooSteps(webDriver, wait);
+        setWebDriver();
     }
 
-    @AfterEach
+    @AfterAll
     public void tearDown() {
+        setWebDriver();
         webDriver.quit();
     }
 
@@ -60,5 +84,4 @@ public abstract class SeleniumTestsResources {
     public boolean isElementInList(String locator, String text) {
         return getElementInListBySubject(locator, text) != null;
     }
-
 }

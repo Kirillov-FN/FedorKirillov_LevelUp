@@ -1,6 +1,8 @@
 package selenium.sendemail.steps.patern;
 
+import io.qameta.allure.Description;
 import java.util.Locale;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -17,6 +19,8 @@ public class StepsRefYahooDraftTest extends SeleniumTestsResources {
     protected final String text = TestProperties.getProperty("yahoo.draftTest.text");
 
     @Test
+    @DisplayName("Отправка из черновиков")
+    @Description("Отправка из черновиков")
     public void  loginDraftLogoff() {
         step = new YahooSteps(webDriver, wait);
         step.openYahoo();

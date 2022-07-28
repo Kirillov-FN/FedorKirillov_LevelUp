@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import baseobjects.yahoo.YahooLoginPage;
 import baseobjects.yahoo.YahooMainPage;
 import baseobjects.yahoo.YahooPostPage;
+import io.qameta.allure.Step;
 import java.util.Locale;
 import java.util.Map;
 import org.openqa.selenium.WebDriver;
@@ -27,27 +28,36 @@ public class YahooSteps {
         this.yahooPostPage = new YahooPostPage(driver, wait);
     }
 
+    @Step("Открытие страницы")
     public void openYahoo() {
         yahooMainPage.open();
         yahooMainPage.clickEmailButton();
     }
 
+    @Step("Логин")
     public void login(String username, String password) {
         yahooLoginPage.inputLogin(username);
-        yahooLoginPage.inputPassword(password);
-        yahooLoginPage.toMailPage();
+        try {
+            yahooLoginPage.toMailPage();
+            yahooLoginPage.inputPassword(password);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
+    @Step("Проверка входа")
     public void assertThatUserLogined(String expected) {
         assertTrue(yahooLoginPage.getUserFromTitle().contains(expected));
     }
 
+    @Step("Отправка сообщения {0} {1} {2}")
     public void sendMessage(String email, String subject, String text) {
         yahooPostPage.createNewMessage(email, subject, text);
         yahooPostPage.sendMessage();
         assertTrue(yahooPostPage.isNotifyValid("Ваше сообщение отправлено."));
     }
 
+    @Step("Сохранение черновика")
     public void saveDraft(String email, String subject, String text) {
         yahooPostPage.createNewMessage(email, subject, text);
         yahooPostPage.closeDraft();
@@ -56,6 +66,7 @@ public class YahooSteps {
         yahooPostPage.acceptAlert();
     }
 
+    @Step("Проверка сообщения в Каталоге {0}")
     public void checkMessageInFolder(String folderName, String email, String subject, String text) {
         yahooPostPage.clickFolder(folderName);
         Map<String, String> row = yahooPostPage.getElementValue(subject);
@@ -64,17 +75,20 @@ public class YahooSteps {
         assertEquals(text, row.get("text"));
     }
 
+    @Step("Удаление письма")
     public void deleteMessage() {
         yahooPostPage.deleteCurrentElement();
         yahooPostPage.clickDeleteButton();
         assertTrue(yahooPostPage.isNotifyValid("Сообщение удалено."));
     }
 
+    @Step("Выход")
     public void logOff() {
         yahooPostPage.logoff();
         assertTrue(driver.getCurrentUrl().equals("https://www.yahoo.com/"));
     }
 
+    @Step("Отправка сообщения из черновиков")
     public void sendMessageFromDraft(String subject) {
         yahooPostPage.clickCurrentElement(subject);
         yahooPostPage.clickButtonById("compose-send-button");
