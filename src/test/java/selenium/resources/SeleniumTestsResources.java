@@ -13,22 +13,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import properties.TestProperties;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public abstract class SeleniumTestsResources {
     protected WebDriver webDriver;
-    protected final String yahooMainPage = "https://www.yahoo.com/";
-    protected final String yahooLogin = "LevelUp.homework3@yahoo.com";
-    protected final String yahooPassword = "LevelUp_homework3";
-
     public WebDriverWait wait;
+    public final String yahooMainPage = TestProperties.getProperty("yahoo.MainPage");
+    public final String yahooLogin = TestProperties.getProperty("yahoo.Login");
+    public final String yahooPassword = TestProperties.getProperty("yahoo.Password");
 
     @BeforeEach
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
-        wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
+        wait = new WebDriverWait(webDriver, Duration.ofSeconds(
+            Integer.parseInt(TestProperties.getProperty("webdriver.wait"))));;
     }
 
     @AfterEach

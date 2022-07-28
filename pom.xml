@@ -54,6 +54,12 @@
       </properties>
     </profile>
     <profile>
+      <id>RefactoredSelenium</id>
+      <properties>
+        <include.class.name>**/selenium/suits/AllRefactoredSeleniumTests.java</include.class.name>
+      </properties>
+    </profile>
+    <profile>
       <id>Selenium</id>
       <properties>
         <include.class.name>**/selenium/suits/AllSeleniumTests.java</include.class.name>
@@ -107,6 +113,12 @@
       <version>1.0</version>
       <scope>system</scope>
       <systemPath>${calculator.path}</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
   <build>
