@@ -6,34 +6,22 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.javafaker.Faker;
 import java.util.Objects;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+@Data
 public class CommentsBody {
-    @Getter
-    @Setter
     @JsonInclude(Include.NON_DEFAULT)
     private long id;
-    @Getter
-    @Setter
     @JsonProperty("post_id")
     private long postId;
-    @Getter
-    @Setter
     private String name;
-    @Getter
-    @Setter
     private String email;
-    @Getter
-    @Setter
     private String body;
-    @Getter
-    @Setter
     @JsonInclude(Include.NON_DEFAULT)
     @JsonProperty("created_at")
     private String createdAt;
-    @Getter
-    @Setter
     @JsonInclude(Include.NON_DEFAULT)
     @JsonProperty("updated_at")
     private String updatedAt;
@@ -63,8 +51,4 @@ public class CommentsBody {
             that.email) && Objects.equals(body, that.body);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(postId, name, email, body);
-    }
 }

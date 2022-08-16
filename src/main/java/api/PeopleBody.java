@@ -10,32 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+@Data
 public class PeopleBody {
-    @Getter
-    @Setter
     @JsonInclude(Include.NON_DEFAULT)
     private long id;
-    @Getter
-    @Setter
     private String name;
-    @Getter
-    @Setter
     private String gender;
-    @Getter
-    @Setter
     private String email;
-    @Getter
-    @Setter
     private String status;
-    @Getter
-    @Setter
     @JsonProperty("created_at")
     private String createdAt;
-    @Getter
-    @Setter
     @JsonProperty("updated_at")
     private String updatedAt;
 
@@ -72,8 +60,4 @@ public class PeopleBody {
             && Objects.equals(updatedAt, that.updatedAt);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, gender, email, status, createdAt, updatedAt);
-    }
 }

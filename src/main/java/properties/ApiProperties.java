@@ -10,7 +10,7 @@ public class ApiProperties {
     static {
         {
             try {
-                FileInputStream fis = new FileInputStream("src/main/resources/selenium/ApiTests.properties");
+                FileInputStream fis = new FileInputStream("src/main/resources/api/ApiTests.properties");
                 property.load(fis);
                 fis.close();
             } catch (IOException e) {

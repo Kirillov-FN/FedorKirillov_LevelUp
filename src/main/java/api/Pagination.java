@@ -1,19 +1,13 @@
 package api;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+@Data
 public class Pagination {
-    @Getter
-    @Setter
     Integer total;
-    @Getter
-    @Setter
     Integer pages;
-    @Getter
-    @Setter
     Integer page;
-    @Getter
-    @Setter
     Integer limit;
 }
