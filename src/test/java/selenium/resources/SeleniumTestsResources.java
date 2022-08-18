@@ -37,7 +37,7 @@ public abstract class SeleniumTestsResources {
     public final String yahooPassword = TestProperties.getProperty("yahoo.Password");
     protected YahooSteps step;
     @RegisterExtension
-    ScreenshotWatcher screenshotWatcher = new ScreenshotWatcher(webDriver, "target/surefire-reports");
+    ScreenshotWatcher screenshotWatcher = new ScreenshotWatcher(webDriver, "target/allure-results");
 
     private void setWebDriver() {
         try {

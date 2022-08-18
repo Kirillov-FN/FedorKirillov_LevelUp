@@ -1,5 +1,8 @@
 package selenium.resources;
 
+import io.qameta.allure.Allure;
+import io.qameta.allure.Attachment;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,6 +12,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import utils.AttachmentUtils;
 
 public class ScreenshotWatcher  implements TestWatcher {
     WebDriver driver;
@@ -27,7 +31,20 @@ public class ScreenshotWatcher  implements TestWatcher {
     @Override
     public void testFailed(ExtensionContext context, Throwable throwable) {
         // do something
-        captureScreenshot(driver, context.getDisplayName());
+        //captureScreenshot(driver, context.getDisplayName());
+        attachScreenshot(driver);
+        attachPageSource(driver);
+    }
+
+    @Attachment(type = "image/png", fileExtension = ".png")
+    private byte[] attachScreenshot(final WebDriver driver) {
+        return AttachmentUtils.makeScreenshot(driver);
+    }
+
+    private void attachPageSource(final WebDriver driver) {
+        byte[] pageSource = AttachmentUtils.getPageSource(driver);
+        Allure.addAttachment("page_source", "text/html", new ByteArrayInputStream(pageSource),
+            ".html");
     }
 
     public void captureScreenshot(WebDriver driver, String fileName) {

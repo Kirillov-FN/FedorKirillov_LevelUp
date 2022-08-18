@@ -36,10 +36,10 @@ public class YahooSteps {
 
     @Step("Логин")
     public void login(String username, String password) {
-        yahooLoginPage.inputLogin(username);
         try {
-            yahooLoginPage.toMailPage();
+            yahooLoginPage.inputLogin(username);
             yahooLoginPage.inputPassword(password);
+            yahooLoginPage.toMailPage();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
