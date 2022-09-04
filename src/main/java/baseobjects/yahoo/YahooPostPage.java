@@ -40,7 +40,7 @@ public class YahooPostPage extends YahooBase {
     private WebElement logoff;
     @FindBy(id = "ybarAccountMenuOpener")
     private WebElement accountMenu;
-    @FindBy(css = "span[data-test-folder-name]")
+    @FindBy(css = "a[data-test-folder-name]")
     private List<WebElement> folderList;
     @FindBy(css = "div[data-test-folder-container=\"Draft\"] span[data-test-id=\"displayed-count\"]")
     private WebElement countOfDraftItems;
