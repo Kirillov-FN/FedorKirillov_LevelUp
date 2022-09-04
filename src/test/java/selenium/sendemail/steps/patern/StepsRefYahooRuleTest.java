@@ -1,6 +1,8 @@
 package selenium.sendemail.steps.patern;
 
+import io.qameta.allure.Description;
 import java.util.Locale;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -18,6 +20,8 @@ public class StepsRefYahooRuleTest extends SeleniumTestsResources {
     private final String mailText = TestProperties.getProperty("yahoo.ruleTest.text") + System.currentTimeMillis();
 
     @Test
+    @DisplayName("Проверка правила")
+    @Description("Проверка правила")
     public void  loginSendLogoff() {
         step = new YahooSteps(webDriver, wait);
         step.openYahoo();

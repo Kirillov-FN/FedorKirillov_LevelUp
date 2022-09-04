@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import org.asynchttpclient.util.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.WebDriver;
@@ -40,7 +41,7 @@ public class YahooPostPage extends YahooBase {
     private WebElement logoff;
     @FindBy(id = "ybarAccountMenuOpener")
     private WebElement accountMenu;
-    @FindBy(css = "span[data-test-folder-name]")
+    @FindBy(css = "a[data-test-folder-name]")
     private List<WebElement> folderList;
     @FindBy(css = "div[data-test-folder-container=\"Draft\"] span[data-test-id=\"displayed-count\"]")
     private WebElement countOfDraftItems;
